@@ -9,14 +9,14 @@
 
     /* Secondary Palette */
     --brand-slate: #2e4857;
-    --brand-berry: #ba4685;
+    --brand-berry: #de5500;
     --brand-crimson: #650101;
     --brand-green: #027402;
   }
 
   html,
   body {
-    font-family: "IBM Plex Sans Arabic", "Noto Sans Arabic", system-ui, -apple-system, sans-serif;
+    font-family: "Alumni Sans", "IBM Plex Sans Arabic", "Noto Sans Arabic", system-ui, -apple-system, sans-serif;
     background-color: #f5e9da;
     color: #2e1606;
     overflow-x: hidden;
@@ -43,88 +43,23 @@
 }
 
 .font-display {
-  font-family: "Syne", "IBM Plex Sans Arabic", sans-serif;
+  font-family: "Alumni Sans", "Impact", "IBM Plex Sans Arabic", sans-serif;
+  letter-spacing: 0.02em;
 }
 
-/* Subtle matte paper grain */
-.bg-noise {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.055'/%3E%3C/svg%3E");
+.font-en {
+  font-family: "Alumni Sans", "Impact", sans-serif;
 }
 
-/* Subtle editorial grid on off-white */
-.bg-grid-pattern {
-  background-size: 64px 64px;
-  background-image:
-    linear-gradient(to right, rgba(46, 22, 6, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(46, 22, 6, 0.04) 1px, transparent 1px);
-}
-
-@keyframes marquee-rtl {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(50%);
-  }
-}
-
-.animate-marquee-rtl {
-  display: flex;
-  width: max-content;
-  animation: marquee-rtl 32s linear infinite;
-}
-
-.animate-marquee-rtl:hover {
-  animation-play-state: paused;
-}
-
-@keyframes float-slow {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.animate-float-slow {
-  animation: float-slow 6s ease-in-out infinite;
-}
-
-@keyframes pulse-glow {
-  0%,
-  100% {
-    opacity: 0.35;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.6;
-    transform: scale(1.06);
-  }
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 8s ease-in-out infinite;
-}
-
-.glass-panel {
-  background: linear-gradient(145deg, rgba(255, 245, 234, 0.9), rgba(243, 229, 212, 0.82));
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(46, 22, 6, 0.12);
-}
-
-/* High-contrast Brand Gradient Text for Off-White Canvas */
+/* Solid Deep Espresso Brand Heading Text */
 .brand-gradient-text {
-  background: linear-gradient(135deg, #f06a06 0%, #ba4685 65%, #650101 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #2e1606;
 }
 
-/* 4 Exact Palette Gradients */
-.grad-orange-berry {
-  background: linear-gradient(135deg, #f06a06 0%, #ba4685 100%);
+/* Luxury Pure Orange & Accent Gradients */
+.grad-orange-berry,
+.grad-orange-pure {
+  background: linear-gradient(135deg, #ff8a22 0%, #f06a06 50%, #de5500 100%);
 }
 
 .grad-orange-crimson {
@@ -137,4 +72,56 @@
 
 .grad-slate-green {
   background: linear-gradient(135deg, #2e4857 0%, #027402 100%);
+}
+
+/* Slow-motion gentle wave drifts (ultra-smooth floating wave movements) */
+@keyframes waveDriftSlow1 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(12px, -14px, 0) scale(1.02) rotate(1deg);
+  }
+  100% {
+    transform: translate3d(-8px, 10px, 0) scale(0.99) rotate(-0.7deg);
+  }
+}
+
+@keyframes waveDriftSlow2 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(-14px, 12px, 0) scale(1.03) rotate(-1.2deg);
+  }
+  100% {
+    transform: translate3d(10px, -8px, 0) scale(0.99) rotate(0.8deg);
+  }
+}
+
+@keyframes waveDriftSlow3 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(-10px, -14px, 0) scale(1.02) rotate(1deg);
+  }
+  100% {
+    transform: translate3d(8px, 12px, 0) scale(0.99) rotate(-0.8deg);
+  }
+}
+
+.animate-wave-slow-1 {
+  animation: waveDriftSlow1 14s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.animate-wave-slow-2 {
+  animation: waveDriftSlow2 17s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.animate-wave-slow-3 {
+  animation: waveDriftSlow3 19s ease-in-out infinite alternate;
+  will-change: transform;
 }

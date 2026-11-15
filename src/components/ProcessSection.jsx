@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Check } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { PROCESS_STEPS } from '../data/agencyData';
 
 export default function ProcessSection() {
@@ -13,24 +14,36 @@ export default function ProcessSection() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Header */}
-        <div className="max-w-2xl space-y-3 sm:space-y-4 mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 text-xs font-bold tracking-wider text-[#F06A06]">
-            <span className="w-8 h-[2px] bg-[#F06A06]" />
+        <motion.div
+          initial={{ opacity: 0, y: 45 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-2xl space-y-3 sm:space-y-4 mb-10 sm:mb-14"
+        >
+          <div className="inline-flex items-center gap-2 text-xs font-bold tracking-wider text-[#2E1606]">
+            <span className="w-8 h-[2px] bg-[#2E1606]" />
             <span>شێوازی کارکردنمان</span>
           </div>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#2E1606] leading-snug">
-            ڕێگایەکی ڕوون لە <span className="brand-gradient-text">بیرۆکەوە تا ڕاستی</span>
+            لە بیرۆکەوە تا ئەنجام
           </h2>
           <p className="text-[#2E1606]/78 text-sm sm:text-base leading-relaxed">
             هەموو پڕۆژەیەک بە ٤ قۆناغی ستاندارددا تێدەپەڕێت بۆ دڵنیابوون لە وردبینی، داهێنان و
             ڕادەستکردنی بەرزترین کوالیتی لە کاتی دیاریکراودا.
           </p>
-        </div>
+        </motion.div>
 
         {/* Interactive Step Grid */}
         <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
           {/* Step Selector List */}
-          <div className="lg:col-span-5 min-w-0 flex flex-col gap-3">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 min-w-0 flex flex-col gap-3"
+          >
             {PROCESS_STEPS.map((item, idx) => {
               const isActive = idx === activeIndex;
               return (
@@ -68,10 +81,16 @@ export default function ProcessSection() {
                 </button>
               );
             })}
-          </div>
+          </motion.div>
 
           {/* Active Step Detail Card */}
-          <div className="lg:col-span-7 min-w-0 p-6 sm:p-10 rounded-3xl bg-[#FFF5EA] border border-[#2E1606]/12 flex flex-col justify-between relative overflow-hidden shadow-[0_14px_38px_rgba(46,22,6,0.06)]">
+          <motion.div
+            initial={{ opacity: 0, y: 55, scale: 0.96 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 min-w-0 p-6 sm:p-10 rounded-3xl bg-[#FFF5EA] border border-[#2E1606]/12 flex flex-col justify-between relative overflow-hidden shadow-[0_14px_38px_rgba(46,22,6,0.06)]"
+          >
             <div className={`absolute top-0 inset-x-0 h-2 ${activeStep.gradientClass}`} />
 
             <div className="space-y-4 sm:space-y-6 relative z-10 pt-2">
@@ -110,7 +129,7 @@ export default function ProcessSection() {
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

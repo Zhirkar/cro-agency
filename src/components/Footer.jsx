@@ -1,10 +1,17 @@
 import { ArrowUp } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { NAV_LINKS } from '../data/agencyData';
 
 export default function Footer() {
   return (
     <footer className="border-t border-[#2E1606]/12 bg-[#EFE0CE] pt-12 sm:pt-16 pb-8 sm:pb-10 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.2 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className="max-w-7xl mx-auto px-4 sm:px-8"
+      >
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 sm:gap-8 pb-10 sm:pb-12 border-b border-[#2E1606]/10">
           <div className="space-y-3 max-w-md">
             <div className="flex items-center gap-3">
@@ -15,7 +22,7 @@ export default function Footer() {
                   className="h-full w-auto object-contain"
                 />
               </div>
-              <div className="font-display text-xl sm:text-3xl font-extrabold tracking-wider text-[#2E1606]">
+              <div className="font-display text-2xl sm:text-4xl lg:text-[44px] font-black tracking-normal leading-none text-[#2E1606]">
                 CRO <span className="text-[#F06A06]">AGENCY</span>
               </div>
             </div>
@@ -47,9 +54,9 @@ export default function Footer() {
         </div>
 
         <div className="pt-6 sm:pt-8 text-center text-xs text-[#2E1606]/60">
-          <p>© ٢٠٢٦ کرۆ ئەجنسی (CRO Agency). هەموو مافەکان پارێزراون.</p>
+          <p>© ٢٠٢٦ ئاژانسی کرۆ (CRO Agency). هەموو مافەکان پارێزراون.</p>
         </div>
-      </div>
+      </motion.div>
     </footer>
   );
 }

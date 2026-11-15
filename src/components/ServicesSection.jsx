@@ -1,36 +1,67 @@
 import { Check, Sparkles, ArrowUpLeft } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { SERVICE_PACKAGES } from '../data/agencyData';
 
 export default function ServicesSection({ onSelectService }) {
   return (
     <section id="services" className="py-16 sm:py-32 relative bg-[#F5E9DA] overflow-hidden">
-      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] sm:w-[680px] h-[280px] sm:h-[380px] bg-[#F06A06]/6 blur-[160px] rounded-full" />
+      {/* Background Brand Wave Artwork (Screen 2 - Right, extending under package cards) */}
+      <motion.div
+        initial={{ opacity: 0, x: 40 }}
+        whileInView={{ opacity: 0.95, x: 0 }}
+        viewport={{ once: false, amount: 0.1 }}
+        transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+        className="pointer-events-none absolute top-12 sm:top-16 lg:top-12 -right-32 sm:-right-24 lg:-right-16 w-[700px] sm:w-[950px] lg:w-[1300px] xl:w-[1550px] aspect-[1888/1500] max-w-none z-0 select-none"
+        style={{
+          maskImage: 'linear-gradient(to bottom, black 0%, black 68%, transparent 94%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 68%, transparent 94%)',
+        }}
+      >
+        <div className="w-full h-full animate-wave-slow-2">
+          <img
+            src="/images/cro-wave-2-clean.png"
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="w-full h-full object-contain object-right-top"
+          />
+        </div>
+      </motion.div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         {/* Header matching CRO Agency's tagline */}
-        <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4 mb-10 sm:mb-16">
-          <div className="inline-flex items-center gap-2 text-xs font-bold tracking-wider text-[#F06A06]">
-            <span className="w-6 sm:w-8 h-[2px] bg-[#F06A06]" />
+        <motion.div
+          initial={{ opacity: 0, y: 45 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4 mb-10 sm:mb-16"
+        >
+          <div className="inline-flex items-center gap-2 text-xs font-bold tracking-wider text-[#2E1606]">
+            <span className="w-6 sm:w-8 h-[2px] bg-[#2E1606]" />
             <span>خزمەتگوزاری و پاکێجەکانمان</span>
-            <span className="w-6 sm:w-8 h-[2px] bg-[#F06A06]" />
+            <span className="w-6 sm:w-8 h-[2px] bg-[#2E1606]" />
           </div>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#2E1606] leading-snug">
-            لەگەڵ کرۆ —{' '}
-            <span className="brand-gradient-text">سۆشیال میدیاکەت بە جیاوازی بهێڵەرەوە</span>
+            لەگەڵ کرۆ — سۆشیال میدیاکەت بە جیاوازی بهێڵەرەوە
           </h2>
           <p className="text-[#2E1606]/75 text-sm sm:text-base leading-relaxed">
             سێ پاکێجی تەواو بۆ بەڕێوەبردن، دیزاین و براندینگی پەیج و هەژمارەکانت بە کوالیتییەکی
             جیاواز و پیشەیی.
           </p>
-        </div>
+        </motion.div>
 
         {/* 3 Package Columns */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-7 items-stretch">
-          {SERVICE_PACKAGES.map((pkg) => {
+          {SERVICE_PACKAGES.map((pkg, idx) => {
             const isFeatured = pkg.featured;
             return (
-              <div
+              <motion.div
                 key={pkg.id}
+                initial={{ opacity: 0, y: 65, scale: 0.94 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 0.8, delay: idx * 0.16, ease: [0.16, 1, 0.3, 1] }}
                 className={`relative min-w-0 rounded-3xl p-5 sm:p-8 flex flex-col justify-between transition-all duration-500 overflow-hidden bg-[#FFF5EA] ${
                   isFeatured
                     ? 'border-2 border-[#F06A06] shadow-[0_20px_50px_rgba(46,22,6,0.1)] lg:-translate-y-3'
@@ -95,7 +126,7 @@ export default function ServicesSection({ onSelectService }) {
                   <span>دەستپێبکە</span>
                   <ArrowUpLeft className="w-4 h-4" />
                 </a>
-              </div>
+              </motion.div>
             );
           })}
         </div>

@@ -71,7 +71,7 @@ export async function generateBriefPdf({ selectedService, name, contact, company
   // Top brand gradient accent strip
   const topGrad = ctx.createLinearGradient(0, 0, W, 0);
   topGrad.addColorStop(0, '#F06A06');
-  topGrad.addColorStop(1, '#BA4685');
+  topGrad.addColorStop(1, '#DE5500');
   ctx.fillStyle = topGrad;
   ctx.fillRect(0, 0, W, 18);
 
@@ -97,18 +97,18 @@ export async function generateBriefPdf({ selectedService, name, contact, company
 
   const textRightX = logo ? W - 245 : W - 115;
   ctx.fillStyle = '#F06A06';
-  ctx.font = 'bold 26px "IBM Plex Sans Arabic", "Noto Sans Arabic", sans-serif';
-  ctx.fillText('CRO AGENCY • کرۆ ئەجنسی', textRightX, 138);
+  ctx.font = 'bold 28px "Alumni Sans", "IBM Plex Sans Arabic", "Noto Sans Arabic", sans-serif';
+  ctx.fillText('CRO AGENCY • ئاژانسی کرۆ', textRightX, 138);
 
   ctx.fillStyle = '#2E1606';
-  ctx.font = 'bold 42px "IBM Plex Sans Arabic", "Noto Sans Arabic", sans-serif';
+  ctx.font = 'bold 42px "Alumni Sans", "IBM Plex Sans Arabic", "Noto Sans Arabic", sans-serif';
   ctx.fillText('فۆڕمی داواکاری پڕۆژەی نوێ', textRightX, 200);
 
   const dateStr = new Date().toLocaleDateString('en-GB');
   ctx.textAlign = 'left';
   ctx.direction = 'ltr';
   ctx.fillStyle = 'rgba(46, 22, 6, 0.6)';
-  ctx.font = '600 22px "IBM Plex Sans Arabic", sans-serif';
+  ctx.font = '700 24px "Alumni Sans", "IBM Plex Sans Arabic", sans-serif';
   ctx.fillText(`Date: ${dateStr}`, 115, 145);
   ctx.fillText('0774 178 4847', 115, 182);
 
@@ -116,7 +116,7 @@ export async function generateBriefPdf({ selectedService, name, contact, company
   drawRoundedRect(ctx, 72, 318, W - 144, 132, 24);
   const pkgGrad = ctx.createLinearGradient(72, 318, W - 72, 450);
   pkgGrad.addColorStop(0, '#F06A06');
-  pkgGrad.addColorStop(1, '#BA4685');
+  pkgGrad.addColorStop(1, '#DE5500');
   ctx.fillStyle = pkgGrad;
   ctx.fill();
 
@@ -127,7 +127,7 @@ export async function generateBriefPdf({ selectedService, name, contact, company
   ctx.fillText('پاکێجی هەڵبژێردراو', W - 115, 366);
 
   ctx.fillStyle = '#FFF5EA';
-  ctx.font = 'bold 40px "IBM Plex Sans Arabic", sans-serif';
+  ctx.font = 'bold 44px "Alumni Sans", "IBM Plex Sans Arabic", sans-serif';
   ctx.fillText(selectedService || 'پاکێجی PREMIUM', W - 115, 420);
 
   // Details Card

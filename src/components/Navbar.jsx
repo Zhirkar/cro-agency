@@ -22,21 +22,13 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between gap-3">
         {/* Brand Logo */}
-        <a href="#hero" className="flex items-center gap-2.5 sm:gap-3 group min-w-0">
-          <div className="h-9 sm:h-11 shrink-0 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+        <a href="#hero" className="flex items-center group shrink-0" aria-label="سەرەتای وێبسایت">
+          <div className="h-10 sm:h-12 shrink-0 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
             <img
               src="/images/cro-logo.png"
               alt="CRO Agency Logo"
               className="h-full w-auto object-contain"
             />
-          </div>
-          <div className="flex flex-col leading-tight min-w-0">
-            <span className="font-display text-sm sm:text-lg font-extrabold tracking-wider text-[#2E1606] whitespace-nowrap">
-              CRO <span className="text-[#F06A06]">AGENCY</span>
-            </span>
-            <span className="text-[10px] sm:text-[11px] text-[#2E1606]/65 truncate">
-              ستۆدیۆی داهێنان و براندینگ
-            </span>
           </div>
         </a>
 

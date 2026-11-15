@@ -11,9 +11,31 @@ export default function App() {
   const [preselectedService, setPreselectedService] = useState('');
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-[#F5E9DA] text-[#2E1606] relative bg-grid-pattern">
-      {/* Subtle atmospheric paper grain */}
-      <div className="pointer-events-none fixed inset-0 bg-noise z-50 opacity-50" />
+    <div className="min-h-screen w-full overflow-x-hidden bg-[#F5E9DA] text-[#2E1606] relative">
+
+      {/* Traditional Kurdish Deq (تاتۆی کوردی) Left Margin Ribbon */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed top-0 bottom-0 left-0 w-6 sm:w-12 md:w-16 lg:w-20 xl:w-24 z-30 opacity-30 sm:opacity-35 select-none transition-all duration-300"
+        style={{
+          backgroundImage: "url('/images/kurdish-deq.png')",
+          backgroundRepeat: 'repeat-y',
+          backgroundSize: '100% auto',
+          backgroundPosition: 'center top',
+        }}
+      />
+
+      {/* Traditional Kurdish Deq (تاتۆی کوردی) Right Margin Ribbon */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed top-0 bottom-0 right-0 w-6 sm:w-12 md:w-16 lg:w-20 xl:w-24 z-30 opacity-30 sm:opacity-35 select-none transition-all duration-300"
+        style={{
+          backgroundImage: "url('/images/kurdish-deq.png')",
+          backgroundRepeat: 'repeat-y',
+          backgroundSize: '100% auto',
+          backgroundPosition: 'center top',
+        }}
+      />
 
       <Navbar />
 

@@ -65,7 +65,7 @@ export const SERVICE_PACKAGES = [
     subtitle: 'هاوسەنگییەکی تەواو بۆ براندە چالاکەکان',
     featured: false,
     gradientClass: 'grad-orange-crimson',
-    accentColor: '#BA4685',
+    accentColor: '#F06A06',
     features: [
       '٤ ڤیدیۆ ڕیل',
       '١٠ وێنەی گرافیک',

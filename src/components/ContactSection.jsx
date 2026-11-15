@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import {
   Send,
   Phone,
@@ -10,7 +11,6 @@ import {
   Loader2,
 } from 'lucide-react';
 import { SERVICE_PACKAGES } from '../data/agencyData';
-import { generateBriefPdf } from '../utils/generateBriefPdf';
 
 const WHATSAPP_NUMBER = '9647741784847';
 
@@ -21,7 +21,7 @@ const PACKAGE_OPTIONS = [
 
 function buildWhatsAppUrl({ selectedService, name, contact, company, message }) {
   const lines = [
-    'سڵاو کرۆ ئەجنسی، داواکاری پڕۆژەی نوێم هەیە:',
+    'سڵاو ئاژانسی کرۆ، داواکاری پڕۆژەی نوێم هەیە:',
     '',
     `• پاکێج: ${selectedService}`,
     `• ناو: ${name}`,
@@ -65,6 +65,7 @@ export default function ContactSection({ preselectedService }) {
     };
 
     try {
+      const { generateBriefPdf } = await import('../utils/generateBriefPdf');
       const pdfResult = await generateBriefPdf(payload);
       pdfResult.download();
 
@@ -108,20 +109,46 @@ export default function ContactSection({ preselectedService }) {
 
   return (
     <section id="contact" className="py-16 sm:py-32 bg-[#F5E9DA] relative overflow-hidden">
-      <div className="pointer-events-none absolute bottom-0 right-1/4 w-[320px] sm:w-[480px] h-[260px] sm:h-[320px] bg-[#F06A06]/6 blur-[150px] rounded-full" />
+      {/* Background Brand Wave Artwork (Screen 3 - Lower Right, extending under cards) */}
+      <motion.div
+        initial={{ opacity: 0, x: 40 }}
+        whileInView={{ opacity: 0.95, x: 0 }}
+        viewport={{ once: false, amount: 0.1 }}
+        transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+        className="pointer-events-none absolute top-16 sm:top-24 lg:top-20 -right-32 sm:-right-24 lg:-right-16 w-[700px] sm:w-[950px] lg:w-[1300px] xl:w-[1550px] aspect-[1888/1500] max-w-none z-0 select-none"
+        style={{
+          maskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 95%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 70%, transparent 95%)',
+        }}
+      >
+        <div className="w-full h-full animate-wave-slow-3">
+          <img
+            src="/images/cro-wave-1-clean.png"
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="w-full h-full object-contain object-right-top"
+          />
+        </div>
+      </motion.div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         <div className="grid lg:grid-cols-12 gap-8 sm:gap-12">
           {/* Right Studio Info */}
-          <div className="lg:col-span-5 min-w-0 space-y-6 sm:space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 45 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 min-w-0 space-y-6 sm:space-y-8"
+          >
             <div className="space-y-3 sm:space-y-4">
-              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-wider text-[#F06A06]">
-                <span className="w-8 h-[2px] bg-[#F06A06]" />
+              <div className="inline-flex items-center gap-2 text-xs font-bold tracking-wider text-[#2E1606]">
+                <span className="w-8 h-[2px] bg-[#2E1606]" />
                 <span>پەیوەندیمان پێوە بکە</span>
               </div>
               <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#2E1606] leading-tight">
-                ئامادەیت براندەکەت ببەیتە{' '}
-                <span className="brand-gradient-text">ئاستی داهاتوو؟</span>
+                ئامادەیت براندەکەت ببەیتە ئاستی داهاتوو؟
               </h2>
               <p className="text-[#2E1606]/78 text-sm sm:text-base leading-relaxed">
                 پێمان بڵێ بیرۆکەکەت چییە. لە ماوەی ٢٤ کاتژمێردا تیمی ستراتیژیست و دیزاینەرەکانمان
@@ -151,10 +178,16 @@ export default function ContactSection({ preselectedService }) {
                 <span>کاتی کارکردن: شەممە تا پێنجشەممە • ٩:٠٠ بەیانی - ٦:٠٠ ئێوارە</span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Left Interactive Form */}
-          <div className="lg:col-span-7 min-w-0">
+          <motion.div
+            initial={{ opacity: 0, y: 55, scale: 0.96 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 min-w-0"
+          >
             <div className="p-5 sm:p-9 rounded-3xl bg-[#FFF5EA] border border-[#2E1606]/12 shadow-[0_16px_45px_rgba(46,22,6,0.06)]">
               {submittedData ? (
                 <div className="py-8 sm:py-10 text-center space-y-5">
@@ -326,7 +359,7 @@ export default function ContactSection({ preselectedService }) {
                 </form>
               )}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
